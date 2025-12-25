@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ask Our Jackie - Proper Scouse Wisdom</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red-liver: #C8102E;
+            --red-dark: #9B0B22;
+            --gold: #FFD700;
+            --cream: #FFF8F0;
+            --text-dark: #2C1810;
+            --blue-mersey: #1E3A5F;
+            --tea-brown: #8B4513;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, var(--cream) 0%, #FFE4E1 100%);
+            min-height: 100vh;
+            color: var(--text-dark);
+        }
+
+        .liver-border {
+            height: 8px;
+            background: linear-gradient(90deg, var(--red-liver), var(--red-dark), var(--red-liver));
+        }
+
+        header {
+            background: linear-gradient(180deg, var(--red-liver) 0%, var(--red-dark) 100%);
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '🫖☕🧹🏠💐🧶';
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0.15;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+            letter-spacing: 2rem;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: white;
+            text-shadow: 3px 3px 0 var(--gold), 5px 5px 10px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .tagline {
+            color: var(--gold);
+            font-size: 1.3rem;
+            margin-top: 0.5rem;
+            font-style: italic;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .location-badge {
+            display: inline-block;
+            background: white;
+            color: var(--red-liver);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-weight: 700;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Jackie's Bio Section */
+        .bio-section {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(200, 16, 46, 0.15);
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: wrap;
+            border: 3px solid var(--red-liver);
+        }
+
+        .jackie-avatar {
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(135deg, var(--red-liver), var(--red-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            border: 5px solid var(--gold);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .jackie-avatar.lambanana {
+            background: linear-gradient(135deg, #87CEEB 0%, #E0F4FF 100%);
+        }
+
+        .jackie-avatar .lambanana-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .bio-text {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .bio-text h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--red-liver);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .bio-text p {
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .credentials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .credential {
+            background: #FFE4E1;
+            color: var(--red-dark);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Ask Jackie Form */
+        .ask-section {
+            background: linear-gradient(135deg, var(--red-liver) 0%, var(--red-dark) 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            color: white;
+        }
+
+        .ask-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .question-input {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            margin-bottom: 1rem;
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .category-select {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            margin-bottom: 1rem;
+            background: white;
+            cursor: pointer;
+        }
+
+        .ask-btn {
+            background: var(--gold);
+            color: var(--text-dark);
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .ask-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Jackie's Response */
+        .response-box {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            display: none;
+            border-left: 5px solid var(--gold);
+        }
+
+        .response-box.active {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .response-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            color: var(--red-liver);
+            font-weight: 700;
+        }
+
+        .response-text {
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        /* Sample Advice Columns */
+        .columns-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--red-liver);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .advice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .advice-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .advice-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            background: linear-gradient(90deg, var(--red-liver), var(--red-dark));
+            color: white;
+            padding: 1rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-category {
+            background: var(--gold);
+            color: var(--text-dark);
+            padding: 0.2rem 0.6rem;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            margin-left: auto;
+        }
+
+        .card-question {
+            padding: 1rem;
+            background: #FFE4E1;
+            font-style: italic;
+            border-left: 3px solid var(--red-liver);
+        }
+
+        .card-answer {
+            padding: 1rem;
+            line-height: 1.7;
+        }
+
+        .card-answer strong {
+            color: var(--red-liver);
+        }
+
+        /* Categories Section */
+        .categories-section {
+            margin: 2rem 0;
+        }
+
+        .categories-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--red-liver);
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+        }
+
+        .category-item {
+            background: white;
+            padding: 1.5rem 1rem;
+            border-radius: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border: 2px solid transparent;
+        }
+
+        .category-item:hover {
+            background: var(--red-liver);
+            color: white;
+            transform: scale(1.05);
+            border-color: var(--gold);
+        }
+
+        .category-item .icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .category-item .name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Jackie's Golden Rules */
+        .rules-section {
+            background: linear-gradient(135deg, var(--gold), #FFA500);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            color: var(--text-dark);
+        }
+
+        .rules-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .rules-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .rule {
+            background: rgba(255,255,255,0.9);
+            padding: 1rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: start;
+            gap: 0.5rem;
+        }
+
+        .rule-number {
+            background: var(--red-liver);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* Scouse Dictionary */
+        .dictionary-section {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 3px solid var(--red-liver);
+        }
+
+        .dictionary-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--red-liver);
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .dictionary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .word-item {
+            background: #FFE4E1;
+            padding: 0.8rem;
+            border-radius: 10px;
+        }
+
+        .word-item strong {
+            color: var(--red-liver);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--blue-mersey);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        .disclaimer {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            font-style: italic;
+        }
+
+        .liver-bird {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+            .bio-section {
+                text-align: center;
+            }
+            .jackie-avatar {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="liver-border"></div>
+    
+    <header>
+        <h1 class="logo">Ask Our Jackie</h1>
+        <p class="tagline">"Been around the block more times than a confused cabbie on a Friday night, la."</p>
+        <span class="location-badge">🏠 Straight from Liverpool, la!</span>
+    </header>
+
+    <div class="liver-border"></div>
+
+    <div class="container">
+        <!-- Bio Section -->
+        <section class="bio-section">
+            <div class="jackie-avatar lambanana">
+                <img src="https://www.liverpoolgiftcompany.co.uk/wp-content/uploads/2015/12/Lambanana-Yellow.jpg" alt="Superlambanana - Liverpool Icon" class="lambanana-img">
+            </div>
+            <div class="bio-text">
+                <h2>Meet Our Jackie 🫖</h2>
+                <p>
+                    Alright, queen? I'm Jackie — born and bred in Liverpool, I've seen more than you've had hot dinners.
+                </p>
+                <p>
+                    Whether you need to know how to get your fella's kecks properly white, what to cook when the 
+                    in-laws are coming, or how to tell if that lad's worth keeping — I've got answers, love. 
+                    Now put the kettle on and let's have a proper natter!
+                </p>
+                <div class="credentials">
+                    <span class="credential">🧹 Cleaning boss</span>
+                    <span class="credential">🍲 Sunday roast queen</span>
+                    <span class="credential">🏠 Home & heart expert</span>
+                    <span class="credential">💪 No nonsense</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ask Jackie Section -->
+        <section class="ask-section">
+            <h2>✉️ Go 'ead, Ask Our Jackie</h2>
+            <p style="margin-bottom: 1rem; opacity: 0.9;">What's the matter, love? Spit it out!</p>
+            
+            <select class="category-select" id="categorySelect">
+                <option value="">Pick what's bothering you, la</option>
+                <option value="relationships">💑 Fellas & Family Matters</option>
+                <option value="cooking">🍲 Scran & Sunday Roasts</option>
+                <option value="cleaning">🧹 Cleaning & Home Tips</option>
+                <option value="beauty">💇‍♀️ Looking After Yourself</option>
+                <option value="shopping">🛒 Bargains & Best Buys</option>
+                <option value="lifestyle">🏠 Running Your Home</option>
+                <option value="family">👨‍👩‍👧‍👦 Kids & Grandkids</option>
+                <option value="manners">🎩 Manners & Doing Things Proper</option>
+                <option value="health">🥗 Staying Well</option>
+                <option value="general">🤷‍♀️ Anything Else, Love</option>
+            </select>
+            
+            <textarea class="question-input" id="questionInput" placeholder="Dear Jackie, I've got a problem, la..."></textarea>
+            
+            <button class="ask-btn" onclick="getJackiesAdvice()">Get Jackie's Verdict 🫖</button>
+            
+            <div class="response-box" id="responseBox">
+                <div class="response-header">
+                    <span>🫖</span> Our Jackie Says:
+                </div>
+                <div class="response-text" id="responseText"></div>
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section class="categories-section">
+            <h2>What Our Jackie Knows</h2>
+            <div class="category-grid">
+                <div class="category-item" onclick="selectCategory('relationships')">
+                    <div class="icon">💑</div>
+                    <div class="name">Fellas & Family</div>
+                </div>
+                <div class="category-item" onclick="selectCategory('cooking')">
+                    <div class="icon">🍲</div>
+                    <div class="name">Scran</div>
+                </div>
+                <div class="category-item" onclick="selectCategory('cleaning')">
+                    <div class="icon">✨</div>
+                    <div class="name">Cleaning</div>
+                </div>
+                <div class="category-item" onclick="selectCategory('beauty')">
+                    <div class="icon">💇‍♀️</div>
+                    <div class="name">Looking Well</div>
+                </div>
+                <div class="category-item" onclick="selectCategory('shopping')">
+                    <div class="icon">🛒</div>
+                    <div class="name">Bargain Hunting</div>
+                </div>
+                <div class="category-item" onclick="selectCategory('family')">
+                    <div class="icon">👶</div>
+                    <div class="name">Kids & Grandkids</div>
+                </div>
+                <div class="category-item" onclick="selectCategory('manners')">
+                    <div class="icon">🎩</div>
+                    <div class="name">Manners</div>
+                </div>
+                <div class="category-item" onclick="selectCategory('health')">
+                    <div class="icon">💪</div>
+                    <div class="name">Keeping Well</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sample Advice Columns -->
+        <section class="columns-section">
+            <h2>📰 This Week's Letters</h2>
+            <div class="advice-grid">
+                <article class="advice-card">
+                    <div class="card-header">
+                        <span>💑</span> Worried in Wavertree
+                        <span class="card-category">Fellas</span>
+                    </div>
+                    <div class="card-question">
+                        "Dear Jackie, my fella never helps around the house. He just sits there like a stuffed Echo watching the footie. What do I do?"
+                    </div>
+                    <div class="card-answer">
+                        <strong>Listen 'ere, queen,</strong> my Frank was the same — thought the hoover was a piece of modern art! 
+                        Here's what you do: stop doing his washing for a week. When he's got no clean kecks, he'll soon learn 
+                        where the washing machine is. Men aren't lazy, love, they're just dead good at playing thick. 
+                        Don't go soft on him — you're not his mam! Now make him a cuppa and have a proper word. 🫖
+                    </div>
+                </article>
+
+                <article class="advice-card">
+                    <div class="card-header">
+                        <span>🍲</span> Clueless in Crosby
+                        <span class="card-category">Scran</span>
+                    </div>
+                    <div class="card-question">
+                        "Jackie, my gravy always comes out lumpy. The in-laws are coming Sunday. HELP!"
+                    </div>
+                    <div class="card-answer">
+                        <strong>Eh, soft lad!</strong> Lumpy gravy is a crime against Merseyside, but we can fix this. 
+                        The trick is: take the meat out, keep the pan on low heat, add your flour bit by bit, and 
+                        STIR LIKE YOUR LIFE DEPENDS ON IT. Because it does — your mother-in-law will be watching. 
+                        If it still goes lumpy, sieve it and tell no one. What they don't know won't hurt 'em. 
+                        And for God's sake, make sure those roasties are crispy. Soggy roasties? I'd rather watch Everton win! 🍖
+                    </div>
+                </article>
+
+                <article class="advice-card">
+                    <div class="card-header">
+                        <span>🧹</span> Miffed in Maghull
+                        <span class="card-category">Cleaning</span>
+                    </div>
+                    <div class="card-question">
+                        "Dear Jackie, the kids have drawn all over my wallpaper with crayon. I'm absolutely devoed!"
+                    </div>
+                    <div class="card-answer">
+                        <strong>Ah, bless 'em — little terrors!</strong> Right, don't go mad, this is dead easy. 
+                        Get yourself some bicarbonate of soda, make a paste with water, and gently rub it on. 
+                        If that doesn't shift it, try a bit of WD-40 on a cloth — works a treat on crayon. 
+                        Then have a word with those little scallies about where we do and don't draw. 
+                        My our Kevin drew a Liver Bird on the hall wall in 1972. It's still there. We call it heritage now. 🖍️
+                    </div>
+                </article>
+
+                <article class="advice-card">
+                    <div class="card-header">
+                        <span>👨‍👩‍👧‍👦</span> Frazzled in Fazakerley
+                        <span class="card-category">Family</span>
+                    </div>
+                    <div class="card-question">
+                        "My daughter-in-law does everything different to how I raised my son. Should I say something?"
+                    </div>
+                    <div class="card-answer">
+                        <strong>Oh love, put the kettle on and sit down.</strong> I know it's hard watching them do things 
+                        different, but here's the thing — you raised your son, she's raising hers. Unless the kids 
+                        are in danger, zip it. I MEAN IT. Nothing breaks up a family faster than a nan who can't 
+                        keep her beak out. Smile, nod, and save it for your mates. Being a good nan means biting 
+                        your tongue so hard you'll need a brew afterwards. And you'll always need a brew afterwards. 🫖
+                    </div>
+                </article>
+
+                <article class="advice-card">
+                    <div class="card-header">
+                        <span>🛒</span> Skint in Speke
+                        <span class="card-category">Bargains</span>
+                    </div>
+                    <div class="card-question">
+                        "Jackie, how do you make your pension stretch? Everything's so dear these days!"
+                    </div>
+                    <div class="card-answer">
+                        <strong>Tell me about it, queen!</strong> Right, here's our Jackie's money tips: 
+                        Aldi and Lidl are your best mates — no shame in it, their stuff is boss. Yellow sticker 
+                        shopping at the big Tesco around 7pm? Chef's kiss. Batch cook your scouse and freeze it. 
+                        And never, EVER pay full price for anything — if it's not on offer, you don't need it. 
+                        I haven't paid full price since 1987 and I'm dead proud of it. We didn't survive the 80s 
+                        to pay £3 for a loaf of bread! 💰
+                    </div>
+                </article>
+
+                <article class="advice-card">
+                    <div class="card-header">
+                        <span>🎩</span> Mortified in Mossley Hill
+                        <span class="card-category">Manners</span>
+                    </div>
+                    <div class="card-question">
+                        "My grandson doesn't say please or thank you. My daughter says I'm old-fashioned. Am I?"
+                    </div>
+                    <div class="card-answer">
+                        <strong>Old-fashioned?! MANNERS?!</strong> I'll give her old-fashioned! Listen, love, 
+                        manners cost nothing and they'll get that lad further in life than any fancy gadget. 
+                        Please, thank you, and holding the door open — that's not old-fashioned, that's being 
+                        a decent human being! You keep at it, nan. Slip him a few sweets when he remembers his 
+                        manners and watch him learn. Works better than any lecture. Your daughter will thank you 
+                        when he's not acting like a little wool in public. 🎩
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Scouse Dictionary -->
+        <section class="dictionary-section">
+            <h2>📖 Jackie's Scouse Dictionary</h2>
+            <p style="text-align: center; margin-bottom: 1.5rem;">For those who aren't from 'round 'ere, la!</p>
+            <div class="dictionary-grid">
+                <div class="word-item"><strong>Boss:</strong> Really good, excellent</div>
+                <div class="word-item"><strong>Scran:</strong> Food, a meal</div>
+                <div class="word-item"><strong>Brekie:</strong> Breakfast</div>
+                <div class="word-item"><strong>Defo:</strong> Definitely</div>
+                <div class="word-item"><strong>La/Lad/Queen:</strong> Term of endearment</div>
+                <div class="word-item"><strong>Made up:</strong> Very happy</div>
+                <div class="word-item"><strong>Devoed:</strong> Devastated</div>
+                <div class="word-item"><strong>Soft lad:</strong> Silly person (affectionate)</div>
+                <div class="word-item"><strong>Sound:</strong> Good, okay, decent</div>
+                <div class="word-item"><strong>Kecks:</strong> Trousers</div>
+                <div class="word-item"><strong>Dead:</strong> Very (as in "dead good")</div>
+                <div class="word-item"><strong>Ta-ra:</strong> Goodbye</div>
+                <div class="word-item"><strong>Wool:</strong> Someone not from Liverpool</div>
+                <div class="word-item"><strong>Geg in:</strong> Butt into a conversation</div>
+                <div class="word-item"><strong>Cob on:</strong> In a bad mood</div>
+                <div class="word-item"><strong>Lecky:</strong> Electricity</div>
+                <div class="word-item"><strong>Ozzy:</strong> Hospital</div>
+                <div class="word-item"><strong>Antwacky:</strong> Old-fashioned</div>
+                <div class="word-item"><strong>Keep dixie:</strong> Keep a lookout, keep watch</div>
+                <div class="word-item"><strong>Humpty-dumpty:</strong> A short person</div>
+                <div class="word-item"><strong>Two sheets to the wind:</strong> A bit tipsy</div>
+                <div class="word-item"><strong>Baltic:</strong> Freezing cold</div>
+                <div class="word-item"><strong>Belter:</strong> Something brilliant</div>
+                <div class="word-item"><strong>Bizzies:</strong> The police</div>
+                <div class="word-item"><strong>Chocka:</strong> Very busy or full</div>
+                <div class="word-item"><strong>Jarg:</strong> Fake, counterfeit</div>
+                <div class="word-item"><strong>Scally:</strong> Young troublemaker</div>
+                <div class="word-item"><strong>Kidda:</strong> Friend, mate</div>
+                <div class="word-item"><strong>Plazzy:</strong> Plastic, cheap, fake</div>
+                <div class="word-item"><strong>Webs:</strong> Trainers, sneakers</div>
+                <div class="word-item"><strong>Abar:</strong> About</div>
+                <div class="word-item"><strong>Gaggin':</strong> Desperate for something</div>
+                <div class="word-item"><strong>Minty:</strong> Angry, fuming</div>
+                <div class="word-item"><strong>Swerve:</strong> Avoid something or someone</div>
+                <div class="word-item"><strong>Bifter:</strong> A cigarette</div>
+                <div class="word-item"><strong>Crimbo:</strong> Christmas</div>
+                <div class="word-item"><strong>Judy:</strong> A woman</div>
+                <div class="word-item"><strong>Lemo:</strong> Lemonade</div>
+                <div class="word-item"><strong>Seen me arse:</strong> Got really annoyed</div>
+                <div class="word-item"><strong>Thingy:</strong> Whatshisface, thingamajig</div>
+                <div class="word-item"><strong>Trainees:</strong> Trainers/sneakers</div>
+                <div class="word-item"><strong>Woollyback:</strong> Someone from outside Liverpool</div>
+                <div class="word-item"><strong>Brass monkeys:</strong> Very cold weather</div>
+                <div class="word-item"><strong>Go 'ead:</strong> Go ahead, do it</div>
+                <div class="word-item"><strong>Made up to bits:</strong> Extremely happy</div>
+            </div>
+        </section>
+
+        <!-- Jackie's Golden Rules -->
+        <section class="rules-section">
+            <h2>✨ Our Jackie's Golden Rules ✨</h2>
+            <div class="rules-list">
+                <div class="rule">
+                    <span class="rule-number">1</span>
+                    <p>Never trust anyone who doesn't like a proper brew. There's something wrong with them.</p>
+                </div>
+                <div class="rule">
+                    <span class="rule-number">2</span>
+                    <p>A clean doorstep tells the neighbours everything they need to know about you.</p>
+                </div>
+                <div class="rule">
+                    <span class="rule-number">3</span>
+                    <p>Sunday dinner is sacred. Miss it and you'd better have a note from the ozzy.</p>
+                </div>
+                <div class="rule">
+                    <span class="rule-number">4</span>
+                    <p>If you can't say something nice, come sit next to me... but only if it's TRUE.</p>
+                </div>
+                <div class="rule">
+                    <span class="rule-number">5</span>
+                    <p>Always have emergency biscuits. Preferably custard creams. This is non-negotiable.</p>
+                </div>
+                <div class="rule">
+                    <span class="rule-number">6</span>
+                    <p>Family comes first, even when they're doing your head in. Especially then.</p>
+                </div>
+                <div class="rule">
+                    <span class="rule-number">7</span>
+                    <p>Never air your dirty laundry in public — that's what your sisters are for.</p>
+                </div>
+                <div class="rule">
+                    <span class="rule-number">8</span>
+                    <p>A good scouse can fix almost anything. The stew, not the accent — though that helps too.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="liver-border"></div>
+    
+    <footer>
+        <div class="liver-bird">🐦</div>
+        <p>🫖 Ask Our Jackie — Proper Liverpool Wisdom 🫖</p>
+        <p class="disclaimer">
+            Disclaimer: Our Jackie's advice is based on years of common sense and strong tea. 
+            She's not a doctor, solicitor, or professional — just a Liverpool legend who's seen it all. 
+            Side effects may include sudden cravings for scouse, an urge to clean your doorstep, 
+            and calling everyone "la."
+        </p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">Ta-ra for now, la! 👋</p>
+    </footer>
+
+    <script>
+        const jackieResponses = {
+            relationships: [
+                "Listen, queen — a good fella makes you a brew without being asked, remembers your mam's birthday, and doesn't leave his socks on the floor like some sort of animal. If he's not doing at least two of those, have a word! 🫖",
+                "My Frank, God rest him, wasn't perfect but he never once forgot our anniversary. That's the bare minimum, love. If your fella can't remember important dates, get him a calendar and if he still forgets, well... have a serious think.",
+                "Is he worth it? Here's my test: would you want your daughter to end up with someone who treats her like he treats you? If the answer's no, you've got your answer, haven't you? Now put the kettle on and have a think.",
+                "Years of marriage taught me this: the good ones make your life easier, not harder. If you're doing all the work and getting none of the appreciation, that's not a partnership, that's a part-time job with no pay. You deserve better, la!",
+                "Here's what I told all my girls: if he makes you cry more than he makes you laugh, something's not right. A good man should have you in stitches, not in tears. My Frank had me cackling every day, daft sod that he was.",
+            ],
+            cooking: [
+                "Scouse is the answer, love! Doesn't matter what the question is. Cheap, filling, and if anyone complains, they can make their own dinner. That's what I told our Kevin in 1978 and he's never complained since. 🍲",
+                "The secret to any good roast is this: get up early, put it in low and slow, and for the love of God, let the meat REST before you carve it. Otherwise you'll have dry meat and I'll have to come round there myself!",
+                "Can't cook? Nonsense! Start with beans on toast — proper comfort food, dead easy. Then work your way up to a fry-up. Master that and you can survive anything. My Frank lived on fry-ups and made it to a grand old age!",
+                "Here's my number one cooking tip: taste as you go, and when in doubt, add more seasoning. Bland food is a crime against Liverpool. We might not have the weather but we've got flavour! 🧂",
+                "The key to feeding a family on a budget? Make friends with your slow cooker. Chuck everything in before work, come home to a boss meal. Even our Kevin can manage it, and he once burned water. TRUE STORY.",
+            ],
+            cleaning: [
+                "Bicarbonate of soda, white vinegar, and elbow grease. That's cleaned every house in Liverpool since 1850 and it'll clean yours too. None of this fancy spray nonsense — save your money for the lecky bill! 🧹",
+                "A clean home is a happy home, but don't kill yourself over it. I do a little bit every day — Monday's bathrooms, Tuesday's floors, and so on. Before you know it, the house is spotless and you haven't gone crackers.",
+                "The trick to keeping on top of things? Don't let it build up! Wash up after every meal, wipe the surfaces down, and for God's sake tell everyone in that house to take their shoes off at the door. I'm not running a pig farm!",
+                "Want to know how my mam kept six kids and a house clean? Everything has a place. EVERYTHING. If it doesn't have a place, you don't need it. That's not minimalism, love, that's common sense. ✨",
+                "My cleaning motto: if in doubt, scrub it out. And always clean top to bottom — no point mopping the floor if you're about to dust the shelves, is it? Common sense, la, but you'd be amazed how many people don't think of it!",
+            ],
+            beauty: [
+                "Best beauty advice I ever got? Wash your face, drink your water, and mind your own business. Stress ages you faster than anything, so stop worrying about what everyone else is doing! 💆‍♀️",
+                "I've got skin like this because I never went to bed with my makeup on. Not once! Even after New Year's Eve 1965, and believe me, that was a night. Cold cream and a flannel — that's all you need.",
+                "Looking after yourself isn't vanity, love, it's self-respect. Get your hair done, put a bit of lippy on if you fancy it, and hold your head up high. You're a Liverpool girl — we don't do dowdy!",
+                "The secret to looking good at any age? Get enough sleep, eat proper meals (not that fast food rubbish), and laugh a lot. Laughter's the best face cream. Also, actual face cream. Nivea, the blue pot — boss stuff. 😊",
+                "My mam always said: take care of your hands and your feet, and the rest will follow. Good advice that. And wear sunscreen — we didn't know about that in my day but you lot have no excuse!",
+            ],
+            shopping: [
+                "Never pay full price for ANYTHING. I haven't since about 1987. Yellow stickers, sales, coupons — there's no shame in a bargain, love. The shame is paying more than you have to! 💰",
+                "Aldi and Lidl are your best mates. Same quality, half the price, and those middle aisles? You go in for bread and come out with a pressure washer. That's called smart shopping, la!",
+                "Here's my shopping rule: if you're not going to use it within the week, don't buy it. Doesn't matter how good the offer is. A bargain isn't a bargain if it goes in the bin! I've seen too many people waste good food.",
+                "Best time for bargains? Big Tesco, 7pm, head for the reduced section. It's like the Hunger Games but for pensioners. Elbows OUT, queen! 🛒",
+                "Before you buy anything, ask yourself: do I need it, or do I just want it? If you just want it, put it down and walk away. Come back tomorrow. If you're still thinking about it, THEN you can have it. Discipline, love!",
+            ],
+            lifestyle: [
+                "Organisation is simple: a place for everything and everything in its place. If you can't find something, it means it doesn't have a proper home. Sort that out and you'll save hours of your life! 🏠",
+                "Running a home is like running a small business, except you don't get paid and everyone complains about your cooking. The trick is routine. Same things, same days, same order. Then your brain doesn't have to think about it.",
+                "Want a peaceful house? Have a system. Coats on hooks, shoes by the door, keys in the bowl. Drill it into everyone. It took me ages to train our Frank but by God he learned eventually!",
+                "The secret to a happy home? Regular cups of tea, proper conversations without the telly on, and a door you can close when you need five minutes' peace. That last one's essential, trust me.",
+                "Lists, love. LISTS. Shopping list on the fridge, to-do list on the counter, and a calendar on the wall. If it's not written down, it's not getting done. That's how I've run this house for years!",
+            ],
+            family: [
+                "Kids and grandkids are the best thing in the world, but they'll also drive you crackers. That's just how it is. Love 'em, feed 'em, and remember — you can give 'em back at 5 o'clock! 👶",
+                "The best thing you can do for your grandkids? Time. Actual time, sat with them, listening to their nonsense. They won't remember the toys you bought but they'll remember the stories and the cuddles.",
+                "When the kids or grandkids are acting up, remember: they're not giving you a hard time, they're having a hard time. Usually. Sometimes they're just being little scallies and need a talking to. You'll know the difference!",
+                "Family arguments? They blow over. Don't let pride get in the way of making up. Life's too short, love. Pick up the phone, say sorry even if you're not sure you should, and move on. That's what family does. 💕",
+                "My advice for new parents? Lower your standards and raise your patience. The house will be a mess, you'll be knackered, and that's normal. Anyone who says different is lying or has a cleaner. Probably both!",
+            ],
+            manners: [
+                "Please, thank you, and holding the door open. That's not old-fashioned, that's basic human decency. Anyone who says different wasn't raised proper! 🎩",
+                "Manners cost nothing but they'll get you everywhere. I've seen people charm their way through life just by being polite. It's not hard — treat people how you'd want to be treated.",
+                "The youth today think manners are antwacky, but they're wrong. A 'please' and 'thank you' will get you further than any fancy qualification. Well, along with the qualification. Get both!",
+                "Here's what I taught all my kids and grandkids: say please, say thank you, look people in the eye, and never EVER talk with your mouth full. Basic stuff, but you'd be amazed how many people don't do it!",
+                "Respect your elders doesn't mean agreeing with everything they say. It means listening, being polite, and saving the eye-rolls for when they can't see you. That's just smart, la!",
+            ],
+            health: [
+                "Best health advice? Eat proper food, go for a walk, and don't read scary stuff on the internet at 2am. If you're worried, see a proper doctor, not Dr Google! 🥗",
+                "We didn't have all these fancy diets in my day. We just ate our veg, had smaller portions, and walked everywhere. That's the secret — no magic, just common sense.",
+                "Keep moving, love! I still do my shopping on foot. The day you stop moving is the day you seize up. Use it or lose it, as our Frank used to say. God rest him.",
+                "Want to live long? Eat your greens, drink your water, have a laugh with your mates, and don't let the little things stress you out. Oh, and tea. Lots of tea. Medicinal, that is. 🫖",
+                "Sleep is more important than people think. You can't run on empty, love. Eight hours if you can get it, and don't feel guilty about a Sunday afternoon nap. I call it 'recharging.'",
+            ],
+            general: [
+                "Whatever's bothering you, love, it probably won't matter in five years. And if it will? Then stop worrying and start doing something about it! Put the kettle on and let's have a proper think.",
+                "Years on this earth taught me this: most problems aren't as bad as they seem at 2am. Get some sleep, have a brew, and tackle it fresh in the morning. Everything looks better after a cuppa.",
+                "Here's my general life advice, la: be kind, work hard, don't be a wool, and always have biscuits in for visitors. The rest sorts itself out eventually.",
+                "You're asking me for advice, which means you care about getting it right. That's half the battle won already, love. Trust yourself — you've got more sense than you think! 💪",
+                "When life gets hard, remember: your nan survived the war, your mam survived raising you, and you'll survive this. We're tough, us lot. Now chin up and crack on!",
+            ],
+        };
+
+        function getRandomResponse(category) {
+            const responses = jackieResponses[category] || jackieResponses.general;
+            return responses[Math.floor(Math.random() * responses.length)];
+        }
+
+        function getJackiesAdvice() {
+            const category = document.getElementById('categorySelect').value || 'general';
+            const question = document.getElementById('questionInput').value;
+            
+            if (!question.trim()) {
+                alert("Go 'ead, love — you've got to actually tell me what's wrong! Don't be shy, I've heard it all!");
+                return;
+            }
+
+            const response = getRandomResponse(category);
+            const responseBox = document.getElementById('responseBox');
+            const responseText = document.getElementById('responseText');
+            
+            responseBox.classList.remove('active');
+            
+            setTimeout(() => {
+                responseText.innerHTML = response;
+                responseBox.classList.add('active');
+            }, 300);
+        }
+
+        function selectCategory(category) {
+            document.getElementById('categorySelect').value = category;
+            document.getElementById('questionInput').focus();
+            document.querySelector('.ask-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Easter egg: Type "YNWA"
+        let typedKeys = '';
+        document.addEventListener('keydown', (e) => {
+            typedKeys += e.key.toUpperCase();
+            if (typedKeys.length > 4) {
+                typedKeys = typedKeys.slice(-4);
+            }
+            if (typedKeys === 'YNWA') {
+                alert("🔴 You'll Never Walk Alone, love! My Frank took me to Anfield on our first date, 1962. We won 3-1. I knew right then he was a keeper. Well, not literally — he was terrible at football, the soft lad! 🔴");
+                typedKeys = '';
+            }
+        });
+    </script>
+</body>
+</html>
