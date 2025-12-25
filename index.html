@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Montfort Tadier | Deputy for St Brelade</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'jersey-red': '#E31837',
+                        'jersey-gold': '#FFB81C',
+                        'reform': '#00A651',
+                        'ocean': '#1E5F8A',
+                        'sand': '#F5F0E8',
+                    },
+                    fontFamily: {
+                        'display': ['Playfair Display', 'serif'],
+                        'sans': ['Source Sans 3', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #1E5F8A 0%, #2D7AAF 50%, #00A651 100%);
+        }
+        .quote-mark {
+            font-size: 4rem;
+            line-height: 1;
+            opacity: 0.2;
+        }
+        .timeline-line {
+            background: linear-gradient(to bottom, #00A651, #1E5F8A);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-sand">
+    <!-- Navigation -->
+    <nav class="bg-white/95 backdrop-blur-sm shadow-sm fixed w-full z-50">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-2">
+                <span class="text-2xl font-display text-ocean">MT</span>
+                <span class="hidden sm:block text-sm font-semibold text-gray-600">Montfort Tadier</span>
+            </a>
+            <div class="flex items-center gap-6">
+                <a href="#about" class="text-gray-600 hover:text-ocean transition-colors text-sm font-medium">About</a>
+                <a href="#record" class="text-gray-600 hover:text-ocean transition-colors text-sm font-medium">Record</a>
+                <a href="#priorities" class="text-gray-600 hover:text-ocean transition-colors text-sm font-medium">Priorities</a>
+                <a href="#contact" class="bg-reform text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-green-700 transition-colors">Get in Touch</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-gradient min-h-[90vh] flex items-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="w-full h-full">
+                <pattern id="waves" patternUnits="userSpaceOnUse" width="20" height="20">
+                    <path d="M0 10 Q5 5 10 10 T20 10" fill="none" stroke="white" stroke-width="0.5"/>
+                </pattern>
+                <rect width="100%" height="100%" fill="url(#waves)"/>
+            </svg>
+        </div>
+        
+        <div class="max-w-6xl mx-auto px-4 py-20 grid md:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="text-white">
+                <p class="text-jersey-gold font-semibold mb-2 tracking-wide">Deputy for St Brelade</p>
+                <h1 class="font-display text-5xl md:text-6xl lg:text-7xl mb-6 leading-tight">
+                    Montfort<br>Tadier
+                </h1>
+                <p class="text-xl md:text-2xl font-light mb-8 text-white/90 leading-relaxed">
+                    Serving St Brelade since 2008.<br>
+                    Standing up for what matters.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#priorities" class="bg-white text-ocean px-6 py-3 rounded-full font-semibold hover:bg-jersey-gold hover:text-gray-900 transition-all">
+                        2026 Priorities
+                    </a>
+                    <a href="#contact" class="border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-ocean transition-all">
+                        Contact Monty
+                    </a>
+                </div>
+            </div>
+            
+            <div class="relative">
+                <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-4 border border-white/30">
+                    <img src="img/montfort-tadier.jpg" alt="Deputy Montfort Tadier" class="rounded-xl w-full object-cover shadow-lg">
+                </div>
+                <!-- Stats overlay -->
+                <div class="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-lg p-4">
+                    <p class="text-3xl font-bold text-reform">17</p>
+                    <p class="text-xs text-gray-600">Years Serving<br>St Brelade</p>
+                </div>
+                <div class="absolute -top-4 -right-4 bg-white rounded-xl shadow-lg p-4">
+                    <p class="text-3xl font-bold text-ocean">5×</p>
+                    <p class="text-xs text-gray-600">Re-elected<br>by Voters</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Quick Intro Banner -->
+    <section class="bg-white py-8 border-b">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-8 md:gap-12 text-center">
+                <div>
+                    <p class="text-sm text-gray-500 mb-1">Representing</p>
+                    <p class="font-semibold text-ocean">La Moye & Les Quennevais</p>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-500 mb-1">Born & Raised</p>
+                    <p class="font-semibold text-ocean">St Brelade</p>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-500 mb-1">Party</p>
+                    <p class="font-semibold text-reform">Reform Jersey</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <p class="text-reform font-semibold mb-2">About Montfort</p>
+                    <h2 class="font-display text-4xl text-gray-900 mb-6">Part of This Community</h2>
+                    <div class="space-y-4 text-gray-600 leading-relaxed">
+                        <p>
+                            I grew up in St Brelade — La Moye Primary, then Les Quennevais, then Hautlieu. 
+                            This parish is home. I know the lanes, the beaches, the people. When I'm not 
+                            in the States Assembly, you might find me leading a walking tour of Jersey 
+                            (I'm a qualified tour guide — look out for "Monty Losh"), playing accordion 
+                            at a local event, or chairing the Jersey Human Rights Group.
+                        </p>
+                        <p>
+                            I studied Modern Languages at Sheffield and speak English, French, and German. 
+                            That background is why I care so much about Jersey's language heritage — 
+                            our French roots, Jèrriais, and making sure the next generation has the 
+                            chance to learn languages properly.
+                        </p>
+                        <p>
+                            Politics isn't a career for me — it's a way of standing up for the place 
+                            I love. When something isn't right, I say so. When the community needs 
+                            a voice, I try to be that voice.
+                        </p>
+                    </div>
+                    
+                    <!-- Community involvement badges -->
+                    <div class="mt-6 flex flex-wrap gap-2">
+                        <span class="bg-ocean/10 text-ocean px-3 py-1 rounded-full text-sm font-medium">🎵 Accordionist</span>
+                        <span class="bg-ocean/10 text-ocean px-3 py-1 rounded-full text-sm font-medium">🚶 Tour Guide</span>
+                        <span class="bg-ocean/10 text-ocean px-3 py-1 rounded-full text-sm font-medium">⚖️ Human Rights Group Chair</span>
+                        <span class="bg-reform/10 text-reform px-3 py-1 rounded-full text-sm font-medium">🇫🇷 FR · 🇩🇪 DE · 🇬🇧 EN</span>
+                    </div>
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="bg-white rounded-2xl shadow-lg p-8">
+                        <span class="quote-mark text-ocean">"</span>
+                        <blockquote class="text-xl text-gray-700 italic -mt-8 mb-4">
+                            Politics should be about improving people's lives, protecting what makes Jersey special, 
+                            and having the courage to speak up when things aren't right.
+                        </blockquote>
+                        <p class="text-sm text-gray-500">— Montfort Tadier</p>
+                    </div>
+                    
+                    <!-- Drop-in info -->
+                    <div class="bg-reform/5 rounded-xl p-6 border border-reform/20">
+                        <div class="flex items-start gap-4">
+                            <div class="text-3xl">☕</div>
+                            <div>
+                                <p class="font-semibold text-gray-900">Monthly Drop-in at Communicare</p>
+                                <p class="text-sm text-gray-600 mt-1">
+                                    First Monday of each month at Don Farm, near Les Quennevais Sports Centre. 
+                                    No appointment needed — just come and chat about whatever's on your mind.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Video link -->
+                    <a href="https://statesassembly.public-i.tv/core/portal/speaker_profile/31721" target="_blank" 
+                       class="block bg-ocean/5 rounded-xl p-6 border border-ocean/20 hover:bg-ocean/10 transition-all group">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-ocean rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-900">Watch States Assembly Debates</p>
+                                <p class="text-sm text-gray-600">See Montfort speaking in the Assembly →</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Record Section -->
+    <section id="record" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <p class="text-reform font-semibold mb-2">Current Work</p>
+                <h2 class="font-display text-4xl text-gray-900 mb-4">What I'm Working On</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    These are the committees and panels where I'm currently active — scrutinising government, 
+                    asking questions, and pushing for change.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Role Card 1 -->
+                <div class="group bg-sand rounded-xl p-6 hover:shadow-lg transition-all border border-gray-100">
+                    <div class="w-12 h-12 bg-ocean/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-ocean group-hover:text-white transition-all">
+                        <svg class="w-6 h-6 text-ocean group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Chair, Economic & International Affairs Scrutiny</h3>
+                    <p class="text-gray-600 text-sm">2024 – Present</p>
+                    <p class="text-gray-500 text-sm mt-2">
+                        Leading scrutiny on economic policy, cash acceptance, ferry contracts, and international relations.
+                    </p>
+                </div>
+
+                <!-- Role Card 2 -->
+                <div class="group bg-sand rounded-xl p-6 hover:shadow-lg transition-all border border-gray-100">
+                    <div class="w-12 h-12 bg-reform/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-reform group-hover:text-white transition-all">
+                        <svg class="w-6 h-6 text-reform group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">President, Assemblée Parlementaire de la Francophonie</h3>
+                    <p class="text-gray-600 text-sm">Jersey Branch</p>
+                    <p class="text-gray-500 text-sm mt-2">
+                        Championing Jersey's French heritage, Jèrriais, and multilingual education across the island.
+                    </p>
+                </div>
+
+                <!-- Role Card 3 -->
+                <div class="group bg-sand rounded-xl p-6 hover:shadow-lg transition-all border border-gray-100">
+                    <div class="w-12 h-12 bg-jersey-gold/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-jersey-gold group-hover:text-white transition-all">
+                        <svg class="w-6 h-6 text-jersey-gold group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Member, Offshore Wind Review Panel</h3>
+                    <p class="text-gray-600 text-sm">Current</p>
+                    <p class="text-gray-500 text-sm mt-2">
+                        Scrutinising Jersey's renewable energy strategy and offshore wind development plans.
+                    </p>
+                </div>
+
+                <!-- Role Card 4 -->
+                <div class="group bg-sand rounded-xl p-6 hover:shadow-lg transition-all border border-gray-100">
+                    <div class="w-12 h-12 bg-jersey-red/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-jersey-red group-hover:text-white transition-all">
+                        <svg class="w-6 h-6 text-jersey-red group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Work Permit Holder Welfare Review Panel</h3>
+                    <p class="text-gray-600 text-sm">Current</p>
+                    <p class="text-gray-500 text-sm mt-2">
+                        Ensuring fair treatment and protections for migrant workers in Jersey.
+                    </p>
+                </div>
+
+                <!-- Role Card 5 -->
+                <div class="group bg-sand rounded-xl p-6 hover:shadow-lg transition-all border border-gray-100">
+                    <div class="w-12 h-12 bg-ocean/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-ocean group-hover:text-white transition-all">
+                        <svg class="w-6 h-6 text-ocean group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Political Awareness & Education Sub-Committee</h3>
+                    <p class="text-gray-600 text-sm">2024 – Present</p>
+                    <p class="text-gray-500 text-sm mt-2">
+                        Working to improve civic engagement and political education for islanders.
+                    </p>
+                </div>
+
+                <!-- Role Card 6 -->
+                <div class="group bg-sand rounded-xl p-6 hover:shadow-lg transition-all border border-gray-100">
+                    <div class="w-12 h-12 bg-reform/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-reform group-hover:text-white transition-all">
+                        <svg class="w-6 h-6 text-reform group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Former Assistant Minister for Environment</h3>
+                    <p class="text-gray-600 text-sm">2020</p>
+                    <p class="text-gray-500 text-sm mt-2">
+                        Ministerial experience in environmental policy and sustainability.
+                    </p>
+                </div>
+            </div>
+
+            
+        </div>
+    </section>
+
+    <!-- Key Achievements Section -->
+    <section class="py-16 bg-sand border-t border-gray-200">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <p class="text-reform font-semibold mb-2">Making a Difference</p>
+                <h2 class="font-display text-3xl text-gray-900">Key Achievements</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Corn Riots Achievement -->
+                <div class="bg-white rounded-2xl p-8 shadow-md border-l-4 border-jersey-gold">
+                    <div class="flex items-start gap-4">
+                        <div class="text-4xl">🌾</div>
+                        <div>
+                            <h3 class="font-semibold text-xl text-gray-900 mb-2">Corn Riots Celebrations</h3>
+                            <p class="text-gray-600 mb-3">
+                                Successfully proposed Jersey's first Corn Riots bank holiday in 2021, marking the 250th anniversary 
+                                of the uprising that brought democracy to Jersey. Co-chaired the <em>La Folle d'Avoût</em> festival 
+                                celebrating our Norman heritage and cultural identity.
+                            </p>
+                            <p class="text-sm text-reform font-medium">
+                                ✓ Also secured "Beautiful Jersey" as Jersey's official anthem in 2025
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- La Pulente Achievement -->
+                <div class="bg-white rounded-2xl p-8 shadow-md border-l-4 border-ocean">
+                    <div class="flex items-start gap-4">
+                        <div class="text-4xl">🌊</div>
+                        <div>
+                            <h3 class="font-semibold text-xl text-gray-900 mb-2">Protecting La Pulente</h3>
+                            <p class="text-gray-600 mb-3">
+                                Led the campaign against overdevelopment at La Pulente, St Ouen's Bay. Organised a protest 
+                                of nearly 300 people to protect our coastline from privatisation. The Planning Committee 
+                                rejected the development — a victory for public access to our beaches.
+                            </p>
+                            <p class="text-sm text-ocean font-medium">
+                                ✓ Prepared proposition for States to consider public purchase of the site
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Arts Funding Achievement -->
+                <div class="bg-white rounded-2xl p-8 shadow-md border-l-4 border-reform">
+                    <div class="flex items-start gap-4">
+                        <div class="text-4xl">🎭</div>
+                        <div>
+                            <h3 class="font-semibold text-xl text-gray-900 mb-2">1% for Arts & Culture</h3>
+                            <p class="text-gray-600 mb-3">
+                                Established and defended the commitment that 1% of government spending goes to arts, 
+                                heritage, and culture. Successfully challenged ministerial attempts to water down 
+                                this funding in 2024 — protecting £11.6m for Jersey's creative sector.
+                            </p>
+                            <p class="text-sm text-reform font-medium">
+                                ✓ Supporting the Jersey Music Service, libraries & Jèrriais teaching
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cash Acceptance Achievement -->
+                <div class="bg-white rounded-2xl p-8 shadow-md border-l-4 border-jersey-red">
+                    <div class="flex items-start gap-4">
+                        <div class="text-4xl">💵</div>
+                        <div>
+                            <h3 class="font-semibold text-xl text-gray-900 mb-2">Right to Pay with Cash</h3>
+                            <p class="text-gray-600 mb-3">
+                                Chaired the scrutiny review on cash acceptance in Jersey, with nearly 3,000 responses. 
+                                Personally took the "7 Days Cash Only" challenge to highlight the issues. Working to 
+                                ensure no islander is left behind as we move towards a digital economy.
+                            </p>
+                            <p class="text-sm text-jersey-red font-medium">
+                                ✓ Exploring referendum on cash acceptance rights
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Priorities Section -->
+    <section id="priorities" class="py-20 bg-ocean text-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <p class="text-jersey-gold font-semibold mb-2">Looking Ahead</p>
+                <h2 class="font-display text-4xl mb-4">Priorities for 2026</h2>
+                <p class="text-white/80 max-w-2xl mx-auto">
+                    The issues that matter to St Brelade and to Jersey as a whole.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Priority 1 -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all">
+                    <div class="text-jersey-gold text-3xl mb-4">🏖️</div>
+                    <h3 class="font-semibold text-xl mb-2">Protect Our Coastline</h3>
+                    <p class="text-white/80 text-sm">
+                        Defending St Brelade's beaches from overdevelopment — including leading the campaign to stop 
+                        privatisation at La Pulente. Our coastline belongs to everyone.
+                    </p>
+                </div>
+
+                <!-- Priority 2 -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all">
+                    <div class="text-jersey-gold text-3xl mb-4">🗣️</div>
+                    <h3 class="font-semibold text-xl mb-2">Language Education</h3>
+                    <p class="text-white/80 text-sm">
+                        Making language learning compulsory to GCSE level. 
+                        Jersey's multilingual heritage is worth preserving.
+                    </p>
+                </div>
+
+                <!-- Priority 3 -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all">
+                    <div class="text-jersey-gold text-3xl mb-4">💵</div>
+                    <h3 class="font-semibold text-xl mb-2">Cash Acceptance</h3>
+                    <p class="text-white/80 text-sm">
+                        Ensuring islanders always have the right to pay with cash. 
+                        Financial inclusion matters.
+                    </p>
+                </div>
+
+                <!-- Priority 4 -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all">
+                    <div class="text-jersey-gold text-3xl mb-4">🎭</div>
+                    <h3 class="font-semibold text-xl mb-2">Arts & Culture Funding</h3>
+                    <p class="text-white/80 text-sm">
+                        Protecting the 1% commitment to arts, heritage and culture — 
+                        real investment, not creative accounting.
+                    </p>
+                </div>
+
+                <!-- Priority 5 -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all">
+                    <div class="text-jersey-gold text-3xl mb-4">🏠</div>
+                    <h3 class="font-semibold text-xl mb-2">Affordable Housing</h3>
+                    <p class="text-white/80 text-sm">
+                        Working families shouldn't be priced out of our island. 
+                        Housing is a right, not just an investment.
+                    </p>
+                </div>
+
+                <!-- Priority 6 -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all">
+                    <div class="text-jersey-gold text-3xl mb-4">⚖️</div>
+                    <h3 class="font-semibold text-xl mb-2">Government Accountability</h3>
+                    <p class="text-white/80 text-sm">
+                        Strong scrutiny keeps government honest. 
+                        Taxpayers deserve transparency and value for money.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reform Jersey Section -->
+    <section class="py-16 bg-reform">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="text-white">
+                    <h3 class="font-display text-3xl mb-2">Reform Jersey</h3>
+                    <p class="text-white/90 max-w-xl">
+                        Jersey's first registered political party. Progressive, social-democratic politics that puts people first. 
+                        Co-founded by Montfort and Sam Mézec in 2012, officially registered in 2014, and fighting for a fairer island ever since.
+                    </p>
+                </div>
+                <a href="https://www.reformjersey.je" target="_blank" class="bg-white text-reform px-6 py-3 rounded-full font-semibold hover:bg-jersey-gold hover:text-gray-900 transition-all whitespace-nowrap">
+                    Learn More →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <p class="text-reform font-semibold mb-2">Get In Touch</p>
+                    <h2 class="font-display text-4xl text-gray-900 mb-6">Let's Talk</h2>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Your voice matters. Whether you have a concern about local issues, 
+                        need help navigating government services, or just want to share your thoughts — 
+                        I'm here to listen.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <a href="mailto:m.tadier@gov.je" class="flex items-center gap-4 p-4 bg-sand rounded-xl hover:shadow-md transition-all group">
+                            <div class="w-12 h-12 bg-ocean/10 rounded-lg flex items-center justify-center group-hover:bg-ocean transition-all">
+                                <svg class="w-6 h-6 text-ocean group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-900">Email</p>
+                                <p class="text-gray-600">m.tadier@gov.je</p>
+                            </div>
+                        </a>
+                        
+                        <a href="tel:07797844358" class="flex items-center gap-4 p-4 bg-sand rounded-xl hover:shadow-md transition-all group">
+                            <div class="w-12 h-12 bg-ocean/10 rounded-lg flex items-center justify-center group-hover:bg-ocean transition-all">
+                                <svg class="w-6 h-6 text-ocean group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-900">Phone</p>
+                                <p class="text-gray-600">07797 844 358</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-sand rounded-2xl p-8">
+                    <h3 class="font-semibold text-xl mb-6">Connect Online</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <a href="https://www.facebook.com/MontyTadierStBrelade/" target="_blank" class="flex items-center gap-3 p-4 bg-white rounded-xl hover:shadow-md transition-all">
+                            <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M18.77,7.46H14.5v-1.9c0-.9.6-1.1,1-1.1h3V.5h-4.33C10.24.5,9.5,3.44,9.5,5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4Z"/>
+                                </svg>
+                            </div>
+                            <span class="font-medium text-gray-700">Facebook</span>
+                        </a>
+                        
+                        <a href="https://twitter.com/DeputyTadier" target="_blank" class="flex items-center gap-3 p-4 bg-white rounded-xl hover:shadow-md transition-all">
+                            <div class="w-10 h-10 bg-gray-900 rounded-lg flex items-center justify-center">
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                                </svg>
+                            </div>
+                            <span class="font-medium text-gray-700">X / Twitter</span>
+                        </a>
+                        
+                        <a href="https://statesassembly.je/members/montforttadier" target="_blank" class="flex items-center gap-3 p-4 bg-white rounded-xl hover:shadow-md transition-all">
+                            <div class="w-10 h-10 bg-jersey-red rounded-lg flex items-center justify-center">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                </svg>
+                            </div>
+                            <span class="font-medium text-gray-700">States Assembly</span>
+                        </a>
+                        
+                        <a href="https://www.reformjersey.je/montforttadier" target="_blank" class="flex items-center gap-3 p-4 bg-white rounded-xl hover:shadow-md transition-all">
+                            <div class="w-10 h-10 bg-reform rounded-lg flex items-center justify-center">
+                                <span class="text-white font-bold">RJ</span>
+                            </div>
+                            <span class="font-medium text-gray-700">Reform Jersey</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-center md:text-left">
+                    <p class="font-display text-2xl mb-1">Montfort Tadier</p>
+                    <p class="text-gray-400 text-sm">Deputy for St Brelade No. 2</p>
+                </div>
+                
+                <div class="text-center">
+                    <p class="text-gray-400 text-sm">
+                        Promoted by Reform Jersey, registered in the Royal Court of Jersey.
+                    </p>
+                </div>
+                
+                <div class="flex gap-4">
+                    <a href="https://www.facebook.com/MontyTadierStBrelade/" target="_blank" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-all">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M18.77,7.46H14.5v-1.9c0-.9.6-1.1,1-1.1h3V.5h-4.33C10.24.5,9.5,3.44,9.5,5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4Z"/>
+                        </svg>
+                    </a>
+                    <a href="https://twitter.com/DeputyTadier" target="_blank" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-all">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-500 text-sm">© 2025–2026 Montfort Tadier Campaign. All rights reserved.</p>
+                <p class="text-gray-600 text-xs mt-3">
+                    Designed and built by <a href="https://coderra.je" target="_blank" class="text-jersey-gold hover:text-white transition-colors">Coderra</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Smooth scroll behavior -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
